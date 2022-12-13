@@ -8,12 +8,9 @@ let allKeys = [],
 audio = new Audio("tunes/a.wav"); // by default , audio et is "a" tune
 const playTune = (key) => {
     audio.src = `tunes/${key}.wav`; // passing the audio src bassed ont the pressed   
-    const promise = audio.play();
-    if(promise !== null){
-        promise.catch(() => {
-            audio.play();
-        })
-    }
+    audio.pause();
+    audio.play();
+
 
     // To know which key get clicked adding the active class
     const clickedKey = document.querySelector(`[data-key="${key}"]`);
